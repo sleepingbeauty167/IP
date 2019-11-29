@@ -1,4 +1,4 @@
-function newImg = histShape(srcimg, destimg)
+function newImg = ex1(srcimg, destimg)
 %myFun - Description
 %
 newImg = srcimg;
