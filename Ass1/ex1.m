@@ -1,6 +1,9 @@
-function newImg = ex1(srcimg, destimg)
-%myFun - Description
-%
+function newImg = histShape(srcimg, destimg)
+% 1st Student: Coral Malachi, ID: 314882853
+% 2md Student: Elisha Gerson, ID: 328612304
+
+%The function get a gray-scale image as an argument and returns a gray-scale
+%image obtained by applying the histogram shape algorithm on this image
 newImg = srcimg;
 [r_s,c_s] = size(srcimg);
 [r_d,c_d]=size(destimg);
@@ -58,15 +61,15 @@ function [convertVector] = buildConvertVector(normalize_src_hist,normalize_dst_h
 %This Method get as inputs 2 normalized histograms
 %one of the source image and one of the target image and 
 %return their conversion vector
-s=1;
-d=1;
+src=1;
+dst=1;
 convertVector=zeros(1,256);
-while s<=256
-    if normalize_dst_hist(d)<normalize_src_hist(s)
-        d=d+1;
+while src<=256
+    if normalize_dst_hist(dst)<normalize_src_hist(src)
+        dst=dst+1;
     else
-        convertVector(s)=d+1;
-        s=s+1;
+        convertVector(src)=dst+1;
+        src=src+1;
     end
 end    
 end
@@ -87,4 +90,3 @@ for gray_level = 2:256
     
 end
 end
-
