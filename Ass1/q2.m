@@ -1,7 +1,6 @@
-function nImg = q2(bigImage, smallImage)
-% Student Name: Coral Malachi,ID: 314882853
-%
-%
+function nImg = createTiledImage(bigImage, smallImage)
+% 1st Student: Coral Malachi, ID: 314882853
+% 2md Student: Elisha Gerson, ID: 328612304
 
 % get size of small image:
 [m_s,n_s] = size(smallImage);
@@ -17,15 +16,13 @@ tiles_row = m_b/m_s;
 tiles_col = n_b/n_s;
 
 % start build the new image:
-for i=1 : tiles_row:
-    for j=1 : tiles_col:
-        % cut the big image to non overlapping tiles with size equals to small image size
+for i=1 : tiles_row
+    for j=1 : tiles_col
+        % tile to replace:
         tile_to_replace = bigImage( m_s*(i-1) + 1 : i*m_s , 1+(j-1)*n_s: j*n_s );
-        % match the histogram of the small image to each of the tiles, by using histShape method
-        % that was required for first task
+        % changeArea = bigImage(((r - 1) * smallRows) + 1 : (r * smallRows), ((c - 1) * smallCols) + 1 : (c * smallCols));
         new_tile = histShape(smallImage,tile_to_replace);
-        % replace the parts with the matched small image.
-        nImg((i - 1) * m_s + 1 : i *m_s , (j - 1) * n_s + 1 : j * n_s) = new_tile;
+        nImg( (i - 1) * m_s + 1 : i *m_s, (j - 1) * n_s + 1 : j * n_s) = new_tile;
     end
 end
 
